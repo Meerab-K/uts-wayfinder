@@ -4,17 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTS Wayfinder</title>
+    
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Maname&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
-        <h1>WAYFINDER</h1>
-        <nav>
-            <a href="index.html">UTS Wayfinder</a>
-            <a href="about.html">About DOFEMINA</a>
+        <nav class="navbar">
+            <h1>WAYFINDER</h1>
+            <ul>
+                <li><a href="index.html">UTS Wayfinder</a></li>
+                <li><a href="about.html">About DOFEMINA</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main></main>
+    <main>
+        <section id="map_section">
+            <img src="../img/Map.png" alt="Image of UTS Broadway Campus Map">
+            <div>
+                <h2>UTS Broadway Campus Map</h2>
+                <table>
+                    <tr>
+                        <td class="map_init">AG</td>
+                        <td class="full_map_name">Alumni Green</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">CS</td>
+                        <td class="full_map_name">Central Station</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">B1-B20</td>
+                        <td class="full_map_name">UTS Building(s)</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J1</td>
+                        <td class="full_map_name">Thomas/Jones St Junction</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J2</td>
+                        <td class="full_map_name">Jones St/AG Walkway</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J3</td>
+                        <td class="full_map_name">Thomas/Harris St Junction</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J4</td>
+                        <td class="full_map_name">Thomas St/Goods Line Junction</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J5</td>
+                        <td class="full_map_name">Ultimo/Quay St Junction</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J6</td>
+                        <td class="full_map_name">Goods Line/B6 Exit</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J7</td>
+                        <td class="full_map_name">Goods Line South Exit</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J8</td>
+                        <td class="full_map_name">Broadway/Harris St Junction</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J9</td>
+                        <td class="full_map_name">Broadway/B1 Tower Exit</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J10</td>
+                        <td class="full_map_name">Broadway/Jones St Junction</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J11</td>
+                        <td class="full_map_name">Broadway/Wattle Junction</td>
+                    </tr>
+                    <tr>
+                        <td class="map_init">J12</td>
+                        <td class="full_map_name">Harris St Overhead Footbridge</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section id="find_path_section">
+            <div>
+                <h2>Find your way</h2>
+                <p>around UTS Broadway</p>
+
+                <form action="">
+                    <div class="form-group">
+                    <select name="start_point" id="start_point_select">
+                        <option value="" disabled selected>Select your start point</option>
+                        <option value="Alumni Green">Alumni Green</option>
+                        <option value="Central Station">Central Station</option>
+                        <option value="Building 1">Building 1</option>
+                        <option value="Building 2">Building 2</option>
+                        <option value="Building 3">Building 3</option>
+                        <option value="Building 4">Building 4</option>
+                        <option value="Building 5">Building 5</option>
+                        <option value="Building 6">Building 6</option>
+                        <option value="Building 7">Building 7</option>
+                        <option value="Building 8">Building 8</option>
+                        <option value="Building 9">Building 9</option>
+                        <option value="Building 10">Building 10</option>
+                        <option value="Building 11">Building 11</option>
+                        <option value="Building 15">Building 15</option>
+                        <option value="Building 18">Building 18</option>
+                        <option value="Building 20">Building 20</option>
+                    </select>
+                    </div>
+
+                    <div class="form-group">
+                    <select name="destination" id="destination_select">
+                        <option value="" disabled selected>Select your destination</option>
+                        <option value="Alumni Green">Alumni Green</option>
+                        <option value="Central Station">Central Station</option>
+                        <option value="Building 1">Building 1</option>
+                        <option value="Building 2">Building 2</option>
+                        <option value="Building 3">Building 3</option>
+                        <option value="Building 4">Building 4</option>
+                        <option value="Building 5">Building 5</option>
+                        <option value="Building 6">Building 6</option>
+                        <option value="Building 7">Building 7</option>
+                        <option value="Building 8">Building 8</option>
+                        <option value="Building 9">Building 9</option>
+                        <option value="Building 10">Building 10</option>
+                        <option value="Building 11">Building 11</option>
+                        <option value="Building 15">Building 15</option>
+                        <option value="Building 18">Building 18</option>
+                        <option value="Building 20">Building 20</option>
+                    </select>
+                    </div>
+                    
+                    <button type="submit">Find</button>
+                </form>
+                </div>
+            </div>
+
+            <img src="" alt="">
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2026 DOFEMINA </p>
