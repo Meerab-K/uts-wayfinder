@@ -1,0 +1,48 @@
+@media (max-width: 1000px) {
+    /*index.html*/
+    #map_section {
+        display: block;
+    }
+
+    #map_section img {
+        width: 100%;
+        margin: 0;
+    }
+
+    #map_section div h2 {
+        text-align: center;
+    }
+
+    #map_section div table {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    main {
+        margin-top: 10rem;
+    }
+
+    .navbar {
+        text-align: center;
+        display: block;
+    }
+
+    .navbar ul {
+        justify-content: center;
+        margin-top: 1.5rem;
+        padding: 0.5rem;
+        border-top: 1px solid var(--secondary-color);
+    }
+
+    /*index.html*/
+    form select {
+        width: 60%;
+    }
+
+    /*about.html*/
+    .team-contact {
+        display: grid;
+        grid-template-columns: repeat(1, 500px);
+    }
+}

@@ -20,11 +20,7 @@
 
 body {
     background-color: var(--background-color);
-    margin: 0;
-}
-
-main {
-    margin-top: 2rem;
+    color: var(--primary-color);
 }
 
 footer {

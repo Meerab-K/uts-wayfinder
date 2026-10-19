@@ -1,0 +1,108 @@
+main {
+    padding: 0 2rem;
+    margin-top: rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.highlight {
+    color: var(--secondary-color);
+}
+
+h2 {
+    text-align: center;
+}
+
+.content-box {
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.team-contact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+    gap: 24px;
+    margin: 40px auto;
+}
+
+.card-holder {
+    background-color: var(--highlight-purple);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.profile span {
+    display: block;
+    transform: translate(0, -6px);
+    color: var(--primary-color)
+}
+
+.name {
+    margin: 0;
+}
+
+.bio {
+    color: var(--secondary-color);
+}
+
+.contact-link {
+    display: inline-flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    height: auto;
+}
+
+.github-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--primary-color);
+    mask: url("../svg/github.svg") center / contain no-repeat;
+}
+
+.github-icon:hover {
+    background-color: var(--highlight-pink);
+}
+
+.linkedin-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--primary-color);
+    mask: url("../svg/linkedin.svg") center / contain no-repeat;
+}
+
+.linkedin-icon:hover {
+    background-color: var(--highlight-pink);
+}

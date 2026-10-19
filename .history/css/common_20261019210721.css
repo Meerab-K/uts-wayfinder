@@ -1,0 +1,103 @@
+:root {
+    /*Background*/
+    --background-color: #f5f6f8;
+    --primary-color: #344979;
+    --secondary-color: #9896BB;
+
+    /*Highlight*/
+    --highlight-purple: #c6c6e8;
+    --highlight-pink: #f7e5eb;
+
+    /*Font*/
+    --font: "Maname", serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin-top: 2rem;
+}
+
+footer {
+    text-align: center;
+    margin: 0 5rem;
+    padding: 1rem;
+    border-top: 2px solid var(--highlight-purple);
+    color: var(--highlight-purple);
+}
+
+h2 {
+    color: var(--primary-color);
+    padding: 1rem;
+    font-size: 35px;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.navbar h1 {
+    color: var(--background-color);
+    padding: 0 0 0 0.5rem;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--background-color);
+}
+
+.navbar a:hover {
+    color: var(--highlight-purple);
+}
+
+.floating-menu-btn {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.floating-menu-btn span{
+    background-color: var(--background-color);
+    width: 30px;
+    height: 3px;
+}
+
+main {
+    margin-top: 10rem;
+}

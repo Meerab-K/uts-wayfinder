@@ -1,0 +1,28 @@
+.card-holder {
+    background-color: var(--highlight-purple);
+    border-radius: 15px;
+    padding: 1rem;
+    width: 25%;
+}
+
+.profile {
+    align-content: center;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+}
+
+.name {
+    
+}
+
+.bio {
+    
+}
+
+.contact-link img {
+    width: 30px;
+    height: auto;
+}
