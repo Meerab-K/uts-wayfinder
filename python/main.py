@@ -3,6 +3,7 @@ import heapq
 import networkx as nx
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Load the data
 df_buildings = pd.read_csv('data/nodes.csv' )
@@ -105,3 +106,25 @@ def my_astar_path(G, start, goal):
             pq.push((neighbor, path + [neighbor]), nx.path_weight(G, path + [neighbor],'weight')+heuristic(neighbor,goal))
 
     return None, index  # Return None if no path is found
+
+# Function to generate image of the map with the path highlighted
+def generate_map_path(G, path):
+    # Grab the map image
+    map_image = plt.imread("map.png")
+
+    # Create the path visualisation on the map
+    G = nx.Graph()
+    G.add_weighted_edges_from(neighbours)
+
+    pos = {n: (x, y) for n, (x, y) in path.items()}
+    
+    plt.figure(figsize=(14, 9))
+    nx.draw(G, pos, with_labels=True, node_size=500, font_size=8)
+    plt.show()
+
+    # Overlay the map image as the background
+    plt.imshow(map_image, extent=[0, 100, 0, 100])
+    nx.draw(G, pos, with_labels=True, node_size=500, font_size=8)
+
+    path_image = plt.gcf()
+    return path_image
