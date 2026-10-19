@@ -52,8 +52,41 @@ python/
 └── main.py
 
 README.md
-requirement.txt
+requirements.txt
 ```
+
+# Installation and Setup
+## 1. Clone the Repository
+```
+git clone <repository-url>
+cd uts-wayfinder
+```
+
+## 2. Install Dependencies
+Make sure Python is installed, then run:
+```
+python -m pip install -r requirements.txt
+```
+The main Python libraries used in this project are:
+- FastAPI: Connects the frontend to the Python backend.
+- Uvicorn: Runs the FastAPI server.
+- NetworkX: Represents the campus map as a graph.
+- Pandas & NumPy: Process building and route data.
+- Matplotlib: Visualises the calculated route.
+- Pydantic: Validates API requests.
+
+## 3. Start the Backend
+From the project root directory, run:
+```
+python -m uvicorn app:app --reload --app-dir python
+```
+The API will be available at: `http://127.0.0.1:8000`
+
+## 4. Open the Website
+Open html/index.html using VS Code Live Server.
+The website will connect to the FastAPI backend to calculate and display routes between UTS buildings.
+
+> Note: Keep the backend server running while using the website.
 
 # Limitations
 - The campus is represented as a simpilified graph of buildings and junctions.
