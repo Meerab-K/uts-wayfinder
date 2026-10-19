@@ -1,6 +1,9 @@
-# folder
+# Folder
 /notes
 /img/Team-Avatar
+
+# History Folder
+.history
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
