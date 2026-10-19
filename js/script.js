@@ -26,42 +26,10 @@ document.getElementById('find_path_form').addEventListener('submit', async (even
         }
 
         const result = await response.json();
-        container.textcontent = `Path: ${result.path.join(" → ")} | Distance: ${result.distance}`;
-        
-        const nodesGroup = document.getElementById("route-nodes");
-
-        // Draw route
-        const points = result.coordinates.map(point => `${point.x},${100 - point.y}`).join(" ");
-
-        document.getElementById("route-line").setAttribute("points", points);
-
-        // Clear previous nodes
-        nodesGroup.replaceChildren();
-
-        // Draw nodes from the A* path
-        result.coordinates.forEach((point, index) => {
-            const circle = document.createElementNS(
-                "http://www.w3.org/2000/svg", "circle"
-            );
-
-            circle.setAttribute("cx", point.x);
-            circle.setAttribute("cy", 100 - point.y);
-            circle.setAttribute("r", 1.2);
-            
-            const color =
-                index === 0 ? "green" :
-                index === result.coordinates.length - 1 ? "red" :
-                "blue";
-            
-            circle.setAttribute("fill", "blue");
-            circle.setAttribute("stroke", "white");
-            circle.setAttribute("stroke-width", 0.3);
-
-            nodesGroup.appendChild(circle);
-        });
-
-        document.getElementById("route-line")
-            .setAttribute("points", points);
+        container.innerHTML = `
+            <p>${result.path.join(" → ")}</p>
+            <p>Distance: ${result.distance}</p>
+        `;
     } catch (error) {
         container.textContent = 'Error: ' + error.message;
     }

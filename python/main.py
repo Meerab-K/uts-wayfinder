@@ -108,34 +108,3 @@ def my_astar_path(G, start, goal):
             pq.push((neighbor, path + [neighbor]), nx.path_weight(G, path + [neighbor],'weight')+heuristic(neighbor,goal))
 
     return None, index  # Return None if no path is found
-
-# Function to generate image of the map with the path highlighted
-def generate_map_path(G, path):
-    map_image = plt.imread(folder / "img" / "uts-campus-map.png")
-    map_image[:, :, 3] = 0.5
-
-    pos = {node: buildings[node] for node in path}
-    path_edges = list(zip(path[:-1], path[1:]))
-
-    fig, ax = plt.subplots(figsize=(14, 9))
-
-    ax.imshow(map_image, extent=[0, 100, 0, 100])
-
-    nx.draw_networkx_nodes(
-        G, pos, nodelist=path, ax=ax
-    )
-    
-    nx.draw_networkx_edges(
-        G, pos, edgelist=path_edges,
-        edge_color="red", width=3, ax=ax
-    )
-
-    nx.draw_networkx_labels(
-        G, pos, labels={node: node for node in path}, ax=ax, font_size=8
-    )
-
-    ax.set_xlim(0, 100)
-    ax.set_ylim(0, 100)
-    ax.axis("off")
-
-    return fig

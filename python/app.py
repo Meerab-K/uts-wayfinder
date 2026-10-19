@@ -3,10 +3,8 @@ from pydantic import BaseModel
 
 from fastapi.middleware.cors import CORSMiddleware
 
-import io, base64
-
 import networkx as nx
-from main import neighbours, buildings, my_astar_path, generate_map_path
+from main import neighbours, buildings, my_astar_path
 
 app = FastAPI()
 
@@ -34,9 +32,6 @@ def find_route(request: PathRequest):
 
     # Call A* from main.py
     path, explored = my_astar_path(G, start, goal)
-    
-    print(f"G: {G}")
-    print(f"Path: {path}")
 
     if path is None:
         raise HTTPException(
@@ -46,29 +41,10 @@ def find_route(request: PathRequest):
 
     # Calculate total distance
     distance = nx.path_weight(G, path, "weight")
-    '''
-    # Generate map
-    fig = generate_map_path(G, path)
     
-    # Save to memory
-    buffer = io.BytesIO()
-    fig.savefig(buffer, format='png', bbox_inches="tight")
-    buffer.seek(0)
-    
-    # Encode image for JSON
-    path_image = base64.b64encode(buffer.read()).decode('utf-8')
-    '''
     return {
         "path": path,
         "distance": distance,
-        #"path_image": path_image,
-        "coordinates": [
-        {
-            "x": float(buildings[node][0]),
-            "y": float(buildings[node][1])
-        }
-        for node in path
-        ]
     }
     
     '''

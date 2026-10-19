@@ -1,0 +1,86 @@
+#map_section {
+    margin: 4rem;
+    display: flex;
+}
+
+#map_section img {
+    width: 50%;
+    height: 100%;
+    margin: 0 4rem 0 5rem;
+}
+
+#map_section div h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+#map_section div table {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.map_init {
+    padding: 0 0.3rem 0.5rem 0.3rem;
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color);
+    text-align: center;
+    background-color: var(--highlight-purple);
+    color: white;
+}
+
+.full_map_name {
+    padding-left: 2rem;
+    border-bottom: 0.5px solid var(--highlight-purple);
+}
+
+#find_path_section {
+    margin: 5rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--highlight-purple);
+    text-align: center;
+}
+
+#find_path_section h2 {
+    padding: 0.5rem;
+}
+
+#find_path_section p {
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+form select {
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    width: 30%;
+    height: 3rem;
+    text-align: center;
+    font-size: 15px;
+    color: var(--primary-color);
+}
+
+form button {
+    padding: 0.5rem 1.5rem 1rem 1.5rem;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+}
+
+form button:hover {
+    background-color: var(--highlight-purple);
+    background-origin: var(--highlight-purple);
+    color: var(--primary-color);
+}
+
+#path_result {
+    margin: 2rem;
+}
