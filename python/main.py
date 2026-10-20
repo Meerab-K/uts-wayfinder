@@ -4,10 +4,12 @@ import networkx as nx
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 # Load the data
-df_buildings = pd.read_csv('data/nodes.csv' )
-df_matrix = pd.read_csv('data/adjacency_matrix.csv')
+folder = Path(__file__).resolve().parent.parent
+df_buildings = pd.read_csv(folder / "data" / "nodes.csv")
+df_matrix = pd.read_csv(folder / "data" / "adjacency_matrix.csv")
 
 
 # Create a dictionary of buildings with their coordinates
@@ -32,8 +34,8 @@ for i in range (df_matrix.shape[0]):
 
     for j in range (1, df_matrix.shape[1]):
         if (j>i and x.iloc[j] != 0 ):
-          temp_tuple = (relationKey, df_matrix.columns[j], int(x.iloc[j]))
-          neighbours.append(temp_tuple)
+            temp_tuple = (relationKey, df_matrix.columns[j], int(x.iloc[j]))
+            neighbours.append(temp_tuple)
 
 
 # function to calculate the heuristic between two nodes (locations)
@@ -98,7 +100,7 @@ def my_astar_path(G, start, goal):
         visited.add(vertex)
 
         if vertex == goal:  #late goal check
-           return path, index
+            return path, index
         
         for neighbor in G[vertex]:
             if neighbor in visited:
@@ -106,25 +108,3 @@ def my_astar_path(G, start, goal):
             pq.push((neighbor, path + [neighbor]), nx.path_weight(G, path + [neighbor],'weight')+heuristic(neighbor,goal))
 
     return None, index  # Return None if no path is found
-
-# Function to generate image of the map with the path highlighted
-def generate_map_path(G, path):
-    # Grab the map image
-    map_image = plt.imread("map.png")
-
-    # Create the path visualisation on the map
-    G = nx.Graph()
-    G.add_weighted_edges_from(neighbours)
-
-    pos = {n: (x, y) for n, (x, y) in path.items()}
-    
-    plt.figure(figsize=(14, 9))
-    nx.draw(G, pos, with_labels=True, node_size=500, font_size=8)
-    plt.show()
-
-    # Overlay the map image as the background
-    plt.imshow(map_image, extent=[0, 100, 0, 100])
-    nx.draw(G, pos, with_labels=True, node_size=500, font_size=8)
-
-    path_image = plt.gcf()
-    return path_image

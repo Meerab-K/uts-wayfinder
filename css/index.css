@@ -80,3 +80,9 @@ form button:hover {
     background-origin: var(--highlight-purple);
     color: var(--primary-color);
 }
+
+#path_result p:first-of-type {
+    margin-top: 2rem;
+    font-size: large;
+    color: var(--primary-color);
+}

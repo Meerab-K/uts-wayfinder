@@ -8,26 +8,29 @@ document.getElementById('find_path_form').addEventListener('submit', async (even
 
     container.innerHTML = '<p>Finding path from ' + startPoint + ' to ' + destination + '...</p>';
 
-    // Call the python backend to find the path
-    const response = await fetch('/find_path', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ start: startPoint, goal: destination })
-    });
+    // Call the backend api to run the A* algorithm
+    try {
+        const response = await fetch('http://127.0.0.1:8000/route', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                start: startPoint,
+                goal: destination
+            })
+        });
 
-    const result = await response.json();
-    if (result.path) {
-        container.innerHTML = '<p>Path found: ' + result.path.join(' -> ') + '</p>';
-    } else {
-        container.innerHTML = '<p>No path found.</p>';
-    }
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
 
-    // Display generated map image
-    if (result.map_image) {
-        const img = document.createElement('img');
-        img.src = 'data:image/png;base64,' + result.map_image;
-        container.appendChild(img);
+        const result = await response.json();
+        container.innerHTML = `
+            <p>${result.path.join(" → ")}</p>
+            <p>Distance: ${result.distance}</p>
+        `;
+    } catch (error) {
+        container.textContent = 'Error: ' + error.message;
     }
 })

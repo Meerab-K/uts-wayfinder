@@ -41,4 +41,8 @@
     }
 
     /*about.html*/
+    .team-contact {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
 }
