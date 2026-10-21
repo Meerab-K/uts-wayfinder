@@ -45,4 +45,8 @@
         grid-template-columns: 1fr;
         max-width: 450px;
     }
+
+    .content-box {
+        margin: 0.5rem 2rem 1rem 2rem;
+    }
 }
