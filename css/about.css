@@ -84,6 +84,12 @@ h2 {
     border-radius: 50%;
 }
 
+/* style alt text for images */
+.profile img[alt] {
+    display: block;
+    text-align: center;
+}
+
 .name {
     margin: 0;
 }
