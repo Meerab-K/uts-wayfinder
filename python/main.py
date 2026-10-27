@@ -1,4 +1,5 @@
 # Import libraries
+import io
 import heapq
 import networkx as nx
 import pandas as pd
@@ -108,3 +109,27 @@ def my_astar_path(G, start, goal):
             pq.push((neighbor, path + [neighbor]), nx.path_weight(G, path + [neighbor],'weight')+heuristic(neighbor,goal))
 
     return None, index  # Return None if no path is found
+
+def draw_map(G, route_edges=[]):
+    plt.figure(figsize=(13, 10))
+
+    # Draw the edges of the route
+    nx.draw_networkx_edges(G, pos=buildings, edge_color='navy', width=1.5)
+    
+    plt.xlim(0, 130)
+    plt.ylim(0, 100)
+
+    # Draw building nodes
+    nx.draw_networkx_nodes(G, pos=buildings, nodelist=buildings, node_color='yellow', node_shape='o', node_size=600, edgecolors='black')
+
+    # Draw labels for the buildings
+    nx.draw_networkx_labels(G, pos=buildings, labels={b: b for b in buildings}, font_size=10, font_color='black')
+    
+    # Draw path to show
+    nx.draw_networkx_edges(G, pos=buildings, edgelist=route_edges, edge_color='red', width=2)
+
+    drawn_path = plt.gcf()
+    image_buffer = io.BytesIO()
+    drawn_path.savefig(image_buffer, format='png', bbox_inches='tight')
+    plt.close(drawn_path)
+    return image_buffer.getvalue()

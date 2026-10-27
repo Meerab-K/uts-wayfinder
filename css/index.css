@@ -86,3 +86,11 @@ form button:hover {
     font-size: large;
     color: var(--primary-color);
 }
+
+#path_result .route-map-image {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 1.5rem auto;
+}
