@@ -3,7 +3,7 @@ By Dofemina
 
 UTS Wayfinder is a platform aimed to help users find the best path from their starting point to their destination in UTS Broadway. The platform uses the AI algorithm, A* Search Algorithm, to find the optimal path.
 
-Website Link: [UTS WayFinder](https://www.uts.edu.au/events/open-day/find-your-way-around-campus)
+Website Link: [UTS WayFinder](https://meerab-k.github.io/uts-wayfinder/html/index.html)
 
 # Preview
 ![Preview1](img/Website-preview1.png)
