@@ -1,10 +1,12 @@
+import base64
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 from fastapi.middleware.cors import CORSMiddleware
 
 import networkx as nx
-from main import neighbours, buildings, my_astar_path
+from main import neighbours, buildings, my_astar_path, draw_map
 
 app = FastAPI()
 
@@ -39,12 +41,19 @@ def find_route(request: PathRequest):
             detail="No route found"
         )
 
+    route_edges = []
+    for i in range(len(path) - 1):
+        route_edges.append((path[i], path[i + 1]))
+
+    drawn_path = draw_map(G, route_edges)
+
     # Calculate total distance
     distance = nx.path_weight(G, path, "weight")
     
     return {
         "path": path,
         "distance": distance,
+        "map_image": base64.b64encode(drawn_path).decode("ascii")
     }
     
     '''
