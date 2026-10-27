@@ -60,7 +60,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5500",
         "http://127.0.0.1:5500",
-        "https://meerab-k.github.io"
+        "https://meerab-k.github.io",
+        "https://dofemina.uts-wayfinder"
     ],
     allow_credentials=False,
     allow_methods=["*"],
