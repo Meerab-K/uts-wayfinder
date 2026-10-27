@@ -10,7 +10,7 @@ document.getElementById('find_path_form').addEventListener('submit', async (even
 
     // Call the backend api to run the A* algorithm
     try {
-        const response = await fetch('http://127.0.0.1:8000/route', {
+        const response = await fetch("https://uts-wayfinder.onrender.com/route", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
