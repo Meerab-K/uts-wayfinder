@@ -120,7 +120,7 @@ def draw_map(G, route_edges=[]):
     plt.ylim(0, 100)
 
     # Draw building nodes that are not in path
-    nx.draw_networkx_nodes(G, pos=buildings, nodelist=buildings, node_color='yellow', node_shape='o', node_size=600, edgecolors='black')
+    nx.draw_networkx_nodes(G, pos=buildings, nodelist=buildings, node_color='#9896BB', node_shape='o', node_size=600, edgecolors='black')
     
     # Draw building nodes that are in the path
     route_nodes = {node for edge in route_edges for node in edge}
@@ -128,7 +128,7 @@ def draw_map(G, route_edges=[]):
         G,
         pos=buildings,
         nodelist=[node for node in buildings if node in route_nodes],
-        node_color='red',
+        node_color='#344979',
         node_shape='o',
         node_size=600,
         edgecolors='black'
@@ -138,7 +138,7 @@ def draw_map(G, route_edges=[]):
     nx.draw_networkx_labels(G, pos=buildings, labels={b: b for b in buildings}, font_size=10, font_color='black')
     
     # Draw path to show
-    nx.draw_networkx_edges(G, pos=buildings, edgelist=route_edges, edge_color='red', width=4)
+    nx.draw_networkx_edges(G, pos=buildings, edgelist=route_edges, edge_color='#344979', width=4)
 
     drawn_path = plt.gcf()
     image_buffer = io.BytesIO()
